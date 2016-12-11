@@ -1,0 +1,103 @@
+#!/bin/bash
+#*******************************************************************************
+# Name: createrole
+# Description: Easily create ansible-galaxy roles in github
+# Author: Mark Honomichl (mars at marsdominion dot com)
+#*******************************************************************************
+
+#****************
+# Variables
+#****************
+authtoken=5f604a3f19e4b699a5377f6b5774cc11dcf5db12
+
+#****************
+# usage
+#****************
+usage()
+{
+echo -n "usage: $0  [OPTION]... 
+
+Script that easily creates an Ansible role in github
+
+ Options:
+  -n                Name of the Ansible Role (required)
+  -g                Name of the Github organization to create it in (required)
+"
+}
+
+#****************
+# getopts
+#****************
+while getopts ":pg:n:" opt; do
+  case $opt in
+    g) 
+      gitaccount=$OPTARG
+      ;;
+    n) 
+      rolename=$OPTARG
+      ;;
+	\?)
+      echo "Invalid option: -$OPTARG" >&2
+      exit 1
+      ;;
+    :)
+      echo "Option -$OPTARG requires an argument." >&2
+      exit 1
+      ;;
+  esac
+done
+
+# Make sure rolname is set
+if [ -z "$rolename" ]
+then
+  usage
+  exit
+fi
+
+# Make sure gitaccount is set
+if [ -z "$gitaccount" ]
+then
+  usage
+  exit
+fi
+
+# Check to see if the Repo already exists
+gitrepo=`curl -s -G https://api.github.com/search/repositories?q=$rolename+user:$gitaccount \
+-H "Accept: application/vnd.github.preview" \
+-H "Authorization: token $authtoken" \
+|jq -r .items[].name`
+
+# Exit if the repo already exists
+if [ -n "$gitrepo" ]
+then
+  echo "Repo Already Exists in Org!"
+  exit
+fi
+
+# Create the Git Repository
+giturl=$(curl -s -X POST https://api.github.com/user/repos \
+-H "Authorization: token $authtoken" \
+-d @<(cat <<EOF
+{
+  "name": "$rolename", 
+  "private": "$privaterepo"
+} 
+EOF
+)|jq -r .ssh_url
+)
+
+# Create the Galaxy Role
+ansible-galaxy init $rolename 
+cd $rolename
+
+# Initialize the Git Repo
+git init
+git add .
+git commit -m "Commit Skeleton Role"
+
+# Add the Remote and Push
+git remote add origin $giturl
+git push -u origin master
+
+cd ..
+echo -e "\n\n\nCompleted setting up Ansible Galaxy Role"
