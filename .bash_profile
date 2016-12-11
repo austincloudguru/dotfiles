@@ -4,8 +4,10 @@
 case "$OSTYPE" in
   darwin*)
     export PS1="(\[\033[32m\]\[\] \h:\[\033[36;1m\]\w\[\033[m\]) \n% "
+    ;;
   *)
     export PS1="(\[\033[32m\] \h:\[\033[36;1m\]\w\[\033[m\]) \n% "
+    ;;
 esac
 
 # Source the bash_functions
