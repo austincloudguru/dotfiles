@@ -1,5 +1,11 @@
 # THIS FILE IS UNDER VERSION CONTROL.  MAKE CHANGES IN YOUR REPO!!!!! #
 #*********************************************************************#
+# Source the bash_prompt
+if [ -f ~/.bash_prompt ]
+  then
+    source ~/.bash_prompt
+  fi
+
 # Source the bash_functions
 if [ -f ~/.bash_functions ]
   then
