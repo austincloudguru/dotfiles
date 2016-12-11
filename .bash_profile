@@ -1,10 +1,12 @@
 # THIS FILE IS UNDER VERSION CONTROL.  MAKE CHANGES IN YOUR REPO!!!!! #
 #*********************************************************************#
-# Source the bash_prompt
-if [ -f ~/.bash_prompt ]
-  then
-    source ~/.bash_prompt
-  fi
+# Create the Prompt
+case "$OSTYPE" in
+  darwin*)
+    export PS1="(\[\033[32m\]\[\] \h:\[\033[36;1m\]\w\[\033[m\]) \n% "
+  *)
+    export PS1="(\[\033[32m\] \h:\[\033[36;1m\]\w\[\033[m\]) \n% "
+esac
 
 # Source the bash_functions
 if [ -f ~/.bash_functions ]
