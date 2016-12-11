@@ -1,8 +1,0 @@
-# THIS FILE IS UNDER VERSION CONTROL.  MAKE CHANGES IN YOUR REPO!!!!! #
-#*********************************************************************#
-case "$OSTYPE" in
-  darwin*)  
-    export PS1="(\[\033[32m\]\[\] \h:\[\033[36;1m\]\w\[\033[m\]) \n% "
-   *)        
-    export PS1="(\[\033[32m\] \h:\[\033[36;1m\]\w\[\033[m\]) \n% "
-esac

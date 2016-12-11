@@ -3,11 +3,17 @@
 
 set nobackup
 set noswapfile
+if &t_Co > 2 || has("gui_running")
+    " switch syntax highlighting on, when the terminal has colors
+    syntax on
+endif
+
+" tabs and indenting
 set expandtab
 set tabstop=2
 set shiftwidth=2
+
 set noerrorbells
 set visualbell
 set hlsearch
 set showmatch
-~
