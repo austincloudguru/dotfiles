@@ -22,6 +22,12 @@ if [ -f ~/.bash_aliases ]
     source ~/.bash_aliases
   fi
 
+# Source the bash_secret file
+if [ -f ~/.bash_secret ]
+  then
+    source ~/.bash_secret
+  fi
+
 # Set vi as the editor
 set -o vi
 export EDITOR=vi
