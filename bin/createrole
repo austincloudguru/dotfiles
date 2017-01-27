@@ -8,7 +8,7 @@
 #****************
 # Variables
 #****************
-authtoken=
+authtoken=$GIT_TOKEN
 
 #****************
 # usage
@@ -75,7 +75,14 @@ then
 fi
 
 # Create the Git Repository
-giturl=$(curl -s -X POST https://api.github.com/user/repos \
+if [ $gitaccount == "marsdominion" ]
+then
+  git_endpoint=user/repos
+else
+  git_endpoint=orgs/$gitaccount/repos
+fi
+
+giturl=$(curl -s -X POST https://api.github.com/$git_endpoint \
 -H "Authorization: token $authtoken" \
 -d @<(cat <<EOF
 {
