@@ -75,7 +75,7 @@ then
 fi
 
 # Create the Git Repository
-if [ $gitaccount == "marsdominion" ]
+if [ $gitaccount == "austincloudguru" ]
 then
   git_endpoint=user/repos
 else
