@@ -42,3 +42,6 @@ fi
 # set the path to include the sbin directories
 export PATH=/usr/sbin:/sbin:/Users/mark.honomichl/bin:$PATH
 export PATH=/usr/local/bin:$PATH
+
+# Turn on AWS autocomplete
+complete -C '/usr/local/bin/aws_completer' aws
