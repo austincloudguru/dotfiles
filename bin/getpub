@@ -1,0 +1,7 @@
+#!/bin/bash
+ip=$1
+export VAULT_TOKEN=$(curl -s ${VAULT_ADDR}/v1/auth/github/login -d '{ "token": "'"${GIT_TOKEN}"'" }'|jq  -r .auth.client_token)
+export PAYLOAD='{"valid_principals": "'"${ip}"'", "public_key": "'`cat ~/.ssh/id_rsa.pub`'"}'
+curl -s -k -X POST -H "x-Vault-Token: ${VAULT_TOKEN}" -d "${PAYLOAD}"  ${VAULT_ADDR}/v1/ssh-client-signer/sign/aws |jq -r .data.signed_key >~/.ssh/id_rsa-cert.pub
+echo "Connect using the command:"
+echo "ssh -i ~/.ssh/id_rsa-cert.pub -i ~/.ssh/id_rsa ec2-user@${1}"
