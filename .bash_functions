@@ -14,7 +14,7 @@ setaws() {
 }
 
 ec2ip() {
-  aws ec2 describe-instances --filters "Name=tag:Name,Values=$1" --query "Reservations[*].Instances[*].[Tags[?Key=='Name'].Value|[0],PrivateIpAddress]" --output table
+  aws ec2 describe-instances --filters "Name=tag:Name,Values=$1" --query "Reservations[*].Instances[*].[Tags[?Key=='Name'].Value|[0],PrivateIpAddress, KeyName]" --output table
 }
 
 ec2list() {
