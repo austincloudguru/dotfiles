@@ -16,7 +16,7 @@ ec2list() {
 aws ec2 describe-instances --query "Reservations[*].Instances[*].[PrivateIpAddress, Tags[?Key=='Name'].Value|[0]]" --output table
 }
 rdslist() {
-aws rds describe-db-instances --query "DBInstances[*].[DBInstanceIdentifier, DbiResourceId, Engine]" --output table
+aws rds describe-db-instances --query "DBInstances[*].[DBInstanceIdentifier, Engine]" --output table
 }
 rdsendpoint() {
 aws rds describe-db-instances --filters "Name=db-instance-id,Values=$1" --query "DBInstances[*].[DBInstanceIdentifier, Engine, Endpoint.Port, Endpoint.Address]" --output table
