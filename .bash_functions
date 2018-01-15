@@ -9,3 +9,9 @@ dockerip() {
   docker inspect $1|jq -r .[0].NetworkSettings.Networks.docker_default.IPAddress
 
 }
+ec2ip() {
+  aws ec2 describe-instances --filters "Name=tag:Name,Values=$1" --query "Reservations[*].Instances[*].[Tags[?Key=='Name'].Value|[0],PrivateIpAddress]" --output text
+}
+ec2list() {
+aws ec2 describe-instances --query "Reservations[*].Instances[*].[PrivateIpAddress, Tags[?Key=='Name'].Value|[0]]" --output table
+}
