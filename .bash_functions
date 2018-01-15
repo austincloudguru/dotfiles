@@ -13,7 +13,7 @@ setaws() {
   export AWS_PROFILE=$1
 }
 
-ec2ip() {
+ec2info() {
   aws ec2 describe-instances --filters "Name=tag:Name,Values=$1" --query "Reservations[*].Instances[*].[Tags[?Key=='Name'].Value|[0],PrivateIpAddress, KeyName]" --output table
 }
 
@@ -25,6 +25,6 @@ rdslist() {
   aws rds describe-db-instances --query "DBInstances[*].[DBInstanceIdentifier, Engine]" --output table
 }
 
-rdsendpoint() {
+rdsinfo() {
   aws rds describe-db-instances --filters "Name=db-instance-id,Values=$1" --query "DBInstances[*].[DBInstanceIdentifier, Engine, Endpoint.Port, Endpoint.Address]" --output table
 }
