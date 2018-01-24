@@ -13,6 +13,12 @@ setaws() {
   export AWS_PROFILE=$1
 }
 
+ec2ssh() {
+  read IP KEY <<< $(aws ec2 describe-instances --filters "Name=tag:Name,Values=$1" --query "Reservations[*].Instances[*].[PrivateIpAddress, KeyName]" --output text)
+
+  ssh -i ~/.ssh/$KEY $2@$IP
+}
+
 ec2info() {
   aws ec2 describe-instances --filters "Name=tag:Name,Values=$1" --query "Reservations[*].Instances[*].[Tags[?Key=='Name'].Value|[0],PrivateIpAddress, KeyName]" --output table
 }
@@ -27,4 +33,16 @@ rdslist() {
 
 rdsinfo() {
   aws rds describe-db-instances --filters "Name=db-instance-id,Values=$1" --query "DBInstances[*].[DBInstanceIdentifier, Engine, Endpoint.Port, Endpoint.Address]" --output table
+}
+
+awsid() {
+AWS_PROFILE=$1 aws sts get-caller-identity --query "Account" --output text
+}
+
+checktags() {
+aws ec2 describe-instances --filters "Name=instance-state-name, Values=running" --query "Reservations[*].Instances[*].[Tags[?Key=='Name'].Value|[0], Tags[?Key=='division'].Value|[0], Tags[?Key=='project'].Value|[0], Tags[?Key=='environment'].Value|[0]]" --output table
+}
+
+sshi() {
+  ssh -i ~/.ssh/$1 $2
 }
