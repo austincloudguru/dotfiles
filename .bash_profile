@@ -45,3 +45,7 @@ export PATH=/usr/local/bin:$PATH
 
 # Turn on AWS autocomplete
 complete -C '/usr/local/bin/aws_completer' aws
+
+# VirtualEnv Wrapper
+export WORKON_HOME=~/.virtualenvs
+source /usr/local/bin/virtualenvwrapper.sh
