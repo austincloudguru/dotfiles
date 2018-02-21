@@ -9,6 +9,10 @@ dockerip() {
   docker inspect $1|jq -r .[0].NetworkSettings.Networks.docker_default.IPAddress
 
 }
+dockerlogin() {
+	aws ecr get-login --profile sre_devcloud --region us-east-1 --no-include-email
+	#aws ecr get-login --profile $AWS_PROFILE --region $AWS_DEFAULT_REGION --no-include-email
+}
 setaws() {
   export AWS_PROFILE=$1
 }
