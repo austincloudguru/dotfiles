@@ -13,6 +13,10 @@ setaws() {
   export AWS_PROFILE=$1
 }
 
+setregion() {
+  export AWS_DEFAULT_REGION=$1
+}
+
 ec2ssh() {
   read IP KEY <<< $(aws ec2 describe-instances --filters "Name=tag:Name,Values=$1" --query "Reservations[*].Instances[*].[PrivateIpAddress, KeyName]" --output text)
 
