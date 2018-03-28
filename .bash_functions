@@ -50,3 +50,21 @@ aws ec2 describe-instances --filters "Name=instance-state-name, Values=running" 
 sshi() {
   ssh -i ~/.ssh/$1 $2
 }
+
+# One Password CLI commands
+opcreds() {
+  op get item "$1"| jq -r  '.details.fields[] | select(.designation=="username").value, select(.designation=="password").value'
+}
+
+oplist() {
+  op list items|jq -r '.[].overview.title'
+}
+
+# aws-vault commands
+avr() {
+  aws-vault remove -s $1
+}
+
+avmm() {
+  aws-vault exec -m $(opauth) $1
+}
