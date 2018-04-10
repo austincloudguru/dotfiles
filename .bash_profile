@@ -47,5 +47,6 @@ export PATH=/usr/local/bin:$PATH
 complete -C '/usr/local/bin/aws_completer' aws
 
 # VirtualEnv Wrapper
+export PIP_REQUIRE_VIRTUALENV=true
 export WORKON_HOME=~/.virtualenvs
 source /usr/local/bin/virtualenvwrapper.sh
