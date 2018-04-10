@@ -1,6 +1,14 @@
 # THIS FILE IS UNDER VERSION CONTROL.  MAKE CHANGES IN YOUR REPO!!!!! #
 #*********************************************************************#
 
+# Run mac-playbook
+updatemac() {
+  unset PIP_REQUIRE_VIRTUALENV
+  cd ~/Documents/mac-playbook
+  ansible-playbook playbook.yml -i inventory -K
+  export PIP_REQUIRE_VIRTUALENV=true
+}
+
 # Quick Function to get a shell on a docker container
 dockershell() {
       docker exec -i -t $1 /bin/bash
