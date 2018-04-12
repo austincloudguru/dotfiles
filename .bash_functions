@@ -4,7 +4,7 @@
 # Run mac-playbook
 updatemac() {
   unset PIP_REQUIRE_VIRTUALENV
-  cd ~/Documents/mac-playbook
+  cd ~/macbook-ansible/mac-playbook
   ansible-playbook playbook.yml -i inventory -K
   export PIP_REQUIRE_VIRTUALENV=true
 }
