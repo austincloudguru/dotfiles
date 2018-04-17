@@ -10,6 +10,7 @@ case "$OSTYPE" in
     ;;
 esac
 
+
 # Source the bash_functions
 if [ -f ~/.bash_functions ]
   then
@@ -50,3 +51,8 @@ complete -C '/usr/local/bin/aws_completer' aws
 export PIP_REQUIRE_VIRTUALENV=true
 export WORKON_HOME=~/.virtualenvs
 source /usr/local/bin/virtualenvwrapper.sh
+
+if [[ -n $AWS_VAULT ]]; then
+  export PS1="\[\e[33;38m\](aws-vault: $AWS_VAULT) | \[\e[0m\] $PS1"
+  workon aws
+fi
