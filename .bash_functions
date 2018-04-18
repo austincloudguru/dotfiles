@@ -93,6 +93,9 @@ avr() {
 # Log into a Macmillan AWS Account using aws-vault
 f_arr["14"]="avmm:Log into a Macmillan AWS Account w/ aws-vault"
 avmm() {
+  if [[ -z $OP_SESSION_marsdominion ]]; then
+    $(oplogin)
+  fi
   aws-vault exec --assume-role-ttl=1h -m $(opauth) $1
 }
 
