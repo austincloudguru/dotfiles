@@ -18,7 +18,7 @@ dockershell() {
 # Get the local IP of a docker container
 f_arr[2]="dockerip \$container:Get the IP of a local Docker container"
 dockerip() {
-  docker inspect $1|jq -r .[0].NetworkSettings.Networks.docker_default.IPAddress
+  docker inspect $1|jq -r .[0].NetworkSettings.Networks.$1_default.IPAddress
 
 }
 
