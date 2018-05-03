@@ -99,6 +99,12 @@ avmm() {
   aws-vault exec --assume-role-ttl=1h -m $(opauth) $1
 }
 
+# Get a Vault Token
+f_arr[15]="vtoken:Get a Token from Vault"
+vtoken() {
+  export VAULT_TOKEN=$(curl -sk $VAULT_ADDR/v1/auth/github/login -d '{ "token": "'${GITHUB_TOKEN}'" }'|jq  -r .auth.client_token)
+}
+
 functions() {
   for i in "${f_arr[@]}"
   do
