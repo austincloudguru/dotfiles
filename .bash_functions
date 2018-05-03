@@ -102,7 +102,7 @@ avmm() {
 # Get a Vault Token
 f_arr[15]="vtoken:Get a Token from Vault"
 vtoken() {
-  export VAULT_TOKEN=$(curl -sk $VAULT_ADDR/v1/auth/github/login -d '{ "token": "'${GITHUB_TOKEN}'" }'|jq  -r .auth.client_token)
+  export VAULT_TOKEN=$(curl -sk $VAULT_ADDR/v1/auth/github/login -d '{ "token": "'${GIT_TOKEN}'" }'|jq  -r .auth.client_token)
 }
 
 functions() {
