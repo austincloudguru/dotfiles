@@ -97,6 +97,7 @@ avmm() {
    eval $(op signin marsdominion) 
   fi
   aws-vault exec --assume-role-ttl=1h -m $(opauth) $1
+  unset OP_SESSION_marsdominion
 }
 
 # Get a Vault Token
