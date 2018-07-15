@@ -106,6 +106,16 @@ vtoken() {
   export VAULT_TOKEN=$(curl -sk $VAULT_ADDR/v1/auth/github/login -d '{ "token": "'${GIT_TOKEN}'" }'|jq  -r .auth.client_token)
 }
 
+# Log into a acg account
+f_arr["16"]="avacg:Log into a aws-acgX AWS Account w/ aws-vault"
+avacg() {
+  if [[ -z $OP_SESSION_marsdominion ]]; then
+   eval $(op signin marsdominion)
+  fi
+  aws-vault exec -m $(op get totp "AWS - acg-aws1") acg-aws1
+  unset OP_SESSION_marsdominion
+}
+
 functions() {
   for i in "${f_arr[@]}"
   do
