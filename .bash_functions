@@ -90,9 +90,9 @@ avr() {
   aws-vault remove -s $1
 }
 
-# Log into a Macmillan AWS Account using aws-vault
-f_arr["14"]="avmm:Log into a Macmillan AWS Account w/ aws-vault"
-avmm() {
+# Log into a WPEngine AWS Account using aws-vault
+f_arr["14"]="avmm:Log into a WP Engine AWS Account w/ aws-vault"
+avwp() {
   if [[ -z $OP_SESSION_marsdominion ]]; then
    eval $(op signin marsdominion) 
   fi
