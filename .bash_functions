@@ -91,7 +91,7 @@ avr() {
 }
 
 # Log into a WPEngine AWS Account using aws-vault
-f_arr["14"]="avmm:Log into a WP Engine AWS Account w/ aws-vault"
+f_arr[14]="avmm:Log into a WP Engine AWS Account w/ aws-vault"
 avwp() {
   if [[ -z $OP_SESSION_marsdominion ]]; then
    eval $(op signin marsdominion) 
@@ -107,12 +107,22 @@ vtoken() {
 }
 
 # Log into a acg account
-f_arr["16"]="avacg:Log into a aws-acgX AWS Account w/ aws-vault"
+f_arr[16]="avacg:Log into a aws-acgX AWS Account w/ aws-vault"
 avacg() {
   if [[ -z $OP_SESSION_marsdominion ]]; then
    eval $(op signin marsdominion)
   fi
   aws-vault exec -m $(op get totp "AWS - acg-aws1") acg-aws1
+  unset OP_SESSION_marsdominion
+}
+
+# Log into a WPEngine Master AWS Account using aws-vault
+f_arr[17]="avwpm:Log into a WP Engine Master AWS Account w/ aws-vault"
+avmaster() {
+  if [[ -z $OP_SESSION_marsdominion ]]; then
+   eval $(op signin marsdominion) 
+  fi
+  aws-vault exec --assume-role-ttl=1h -m $(opwpm) master
   unset OP_SESSION_marsdominion
 }
 
