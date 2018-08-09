@@ -91,7 +91,7 @@ avr() {
 }
 
 # Log into a WPEngine AWS Account using aws-vault
-f_arr[14]="avmm:Log into a WP Engine AWS Account w/ aws-vault"
+f_arr["14"]="avwp:Log into a WP Engine AWS Account w/ aws-vault"
 avwp() {
   if [[ -z $OP_SESSION_marsdominion ]]; then
    eval $(op signin marsdominion) 
