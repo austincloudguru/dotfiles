@@ -8,9 +8,10 @@ windows:
       layout: even-horizontal
       panes:
         - terminal_1:
-          - printf '\033]2;%s\033\\' '$HOSTNAME 1'
-          - clear
         - terminal_2:
-          - printf '\033]2;%s\033\\' '$HOSTNAME 2'
-          - clear
+  - aws: 
+      layout: even-horizontal
+      panes:
+        - terminal_1:
+        - terminal_2: elinks https://docs.aws.amazon.com/cli/latest/index.html
   - single:
