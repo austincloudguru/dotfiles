@@ -1,0 +1,16 @@
+# /home/mark.honomichl/.config/tmuxinator/main.yml
+
+name: main
+root: ~/
+
+windows:
+  - main:
+      layout: even-horizontal
+      panes:
+        - terminal_1:
+          - printf '\033]2;%s\033\\' '$HOSTNAME 1'
+          - clear
+        - terminal_2:
+          - printf '\033]2;%s\033\\' '$HOSTNAME 2'
+          - clear
+  - single:
