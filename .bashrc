@@ -3,7 +3,8 @@
 # Create the Prompt
 case "$OSTYPE" in
   darwin*)
-    export PS1="(\[\033[32m\]\[\] \h:\[\033[36;1m\]\w\[\033[m\]) \n% "
+    export PS1="\$(git_prompt)(\[\033[32m\]\[\] \h:\[\033[36;1m\]\w\[\033[m\]) \n% "
+    #export PS1="\$(git_prompt)$PS1"
     ;;
   *)
     export PS1="(\[\033[32m\] \h:\[\033[36;1m\]\w\[\033[m\]) \n% "
