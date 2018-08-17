@@ -94,7 +94,7 @@ EOF
 )
 
 # Create the Galaxy Role
-ansible-galaxy init $rolename 
+molecule init role -r $rolename -d docker
 cd $rolename
 
 # Initialize the Git Repo

@@ -4,7 +4,6 @@
 case "$OSTYPE" in
   darwin*)
     export PS1="\$(git_prompt)(\[\033[32m\]\[\] \h:\[\033[36;1m\]\w\[\033[m\]) \n% "
-    #export PS1="\$(git_prompt)$PS1"
     ;;
   *)
     export PS1="\$(git_prompt)(\[\033[32m\] \h:\[\033[36;1m\]\w\[\033[m\]) \n% "
@@ -12,22 +11,19 @@ case "$OSTYPE" in
 esac
 
 # Source the bash_functions
-if [ -f ~/.bash_functions ]
-  then
-    source ~/.bash_functions
-  fi
+if [ -f ~/.bash_functions ]; then
+  source ~/.bash_functions
+fi
 
 # Source the bash_aliases file
-if [ -f ~/.bash_aliases ]
-  then
-    source ~/.bash_aliases
-  fi
+if [ -f ~/.bash_aliases ]; then
+  source ~/.bash_aliases
+fi
 
 # Source the bash_secret file
-if [ -f ~/.bash_secret ]
-  then
-    source ~/.bash_secret
-  fi
+if [ -f ~/.bash_secret ]; then
+  source ~/.bash_secret
+fi
 
 # Set vi as the editor
 set -o vi
