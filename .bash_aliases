@@ -28,5 +28,7 @@ alias agr='ansible-galaxy install -r requirements.yml'
 alias agrf='ansible-galaxy install -r requirements.yml --force'
 
 # odrive sync tool
-$OD_VERSION=$(ls ~/.odrive/bin)
-alias od='~/.odrive/bin/${OD_VERSION}/odrive.py'
+if [ -d ~/.odrive/bin ]; then
+   $OD_VERSION=$(ls ~/.odrive/bin)
+  alias od='~/.odrive/bin/${OD_VERSION}/odrive.py'
+fi
