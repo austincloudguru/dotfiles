@@ -44,9 +44,11 @@ export PATH=/usr/local/bin:$PATH
 complete -C '/usr/local/bin/aws_completer' aws
 
 # VirtualEnv Wrapper
-export PIP_REQUIRE_VIRTUALENV=true
-export WORKON_HOME=~/.virtualenvs
-source /usr/local/bin/virtualenvwrapper.sh
+if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
+  export PIP_REQUIRE_VIRTUALENV=true
+  export WORKON_HOME=~/.virtualenvs
+  source /usr/local/bin/virtualenvwrapper.sh
+fi
 
 if [[ -n $AWS_VAULT ]]; then
   export PS1="\[\e[33;38m\](aws-vault: $AWS_VAULT)\n\[\e[0m\]$PS1"
