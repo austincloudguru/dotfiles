@@ -1,3 +1,6 @@
 [user]
-	name = Mark Honomichl
-	email = mark@austincloud.guru
+  name = Mark Honomichl
+  email = mark@austincloud.guru
+  sighningkey = 296A21D0
+[commit]
+  gpgsign = true
