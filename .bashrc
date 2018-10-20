@@ -10,14 +10,11 @@ case "$OSTYPE" in
     ;;
 esac
 
-# Source the bash_functions
-if [ -f ~/.bash_functions ]; then
-  source ~/.bash_functions
-fi
-
-# Source the bash_aliases file
-if [ -f ~/.bash_aliases ]; then
-  source ~/.bash_aliases
+# Source the functions directory
+if [ -d ~/.functions ]; then
+    for F in ~/.functions/*; do
+        source $F
+    done
 fi
 
 # Source the bash_secret file

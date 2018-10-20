@@ -1,16 +1,7 @@
 # THIS FILE IS UNDER VERSION CONTROL.  MAKE CHANGES IN YOUR REPO!!!!! #
 #*********************************************************************#
+#!/usr/bin/env bash
 
-# Run mac-playbook
-f_arr[0]="updatemac:Runs Ansible to update MacOS"
-updatemac() {
-  unset PIP_REQUIRE_VIRTUALENV
-  cd ~/mac-ansible/macos-config
-  ansible-playbook playbook.yml -i inventory -K
-  export PIP_REQUIRE_VIRTUALENV=true
-}
-
-f_arr[1]="git_prompt:Outputs the branch and status for my prompt"
 git_prompt() {
   RED=$(tput setaf 1)
   YELLOW="$(tput setaf 3)"
@@ -31,11 +22,8 @@ git_prompt() {
   fi
 }
 
-functions() {
-  for i in "${f_arr[@]}"
-  do
-    A=`cut -d: -f1 <<< "$i"`
-    B=`cut -d: -f2 <<< "$i"`
-    printf "%-25s |  %s\n" "$A" "$B";
-  done
-}
+# Alias the git command to hub if it exists
+if [ -f /usr/local/bin/hub ]
+then
+  alias git='hub'
+fi
