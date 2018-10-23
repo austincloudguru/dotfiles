@@ -51,3 +51,7 @@ if [[ -n $AWS_VAULT ]]; then
   export PS1="\[\e[33;38m\](aws-vault: $AWS_VAULT)\n\[\e[0m\]$PS1"
   workon aws
 fi
+
+# GPG for SSH
+export "GPG_TTY=$(tty)"
+export "SSH_AUTH_SOCK=${HOME}/.gnupg/S.gpg-agent.ssh"
