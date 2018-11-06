@@ -8,6 +8,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     updatemac() {
       unset PIP_REQUIRE_VIRTUALENV
       cd ~/mac-ansible/macos-config
+      git pull
       ansible-playbook playbook.yml -i inventory -K
       export PIP_REQUIRE_VIRTUALENV=true
     }
