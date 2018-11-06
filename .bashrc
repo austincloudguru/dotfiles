@@ -10,14 +10,11 @@ case "$OSTYPE" in
     ;;
 esac
 
-# Source the bash_functions
-if [ -f ~/.bash_functions ]; then
-  source ~/.bash_functions
-fi
-
-# Source the bash_aliases file
-if [ -f ~/.bash_aliases ]; then
-  source ~/.bash_aliases
+# Source the functions directory
+if [ -d ~/.functions ]; then
+    for F in ~/.functions/*; do
+        source $F
+    done
 fi
 
 # Source the bash_secret file
@@ -54,3 +51,7 @@ if [[ -n $AWS_VAULT ]]; then
   export PS1="\[\e[33;38m\](aws-vault: $AWS_VAULT)\n\[\e[0m\]$PS1"
   workon aws
 fi
+
+# GPG for SSH
+export "GPG_TTY=$(tty)"
+export "SSH_AUTH_SOCK=${HOME}/.gnupg/S.gpg-agent.ssh"

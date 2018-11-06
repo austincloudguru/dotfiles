@@ -1,8 +1,6 @@
 # THIS FILE IS UNDER VERSION CONTROL.  MAKE CHANGES IN YOUR REPO!!!!! #
 #*********************************************************************#
-[user]
-  name = Mark Honomichl
-  email = mark@austincloud.guru
-  signingkey = 0x7B78E608B3E7AE97
-[commit]
-  gpgsign = true
+#!/usr/bin/env bash
+
+# Alias aws-vault
+alias av='aws-vault'
