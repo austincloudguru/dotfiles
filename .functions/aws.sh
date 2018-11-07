@@ -6,7 +6,7 @@
 alias av='aws-vault'
 
 # Log into aws2
-avacg2() {
+acg2() {
   if [[ -z $OP_SESSION_marsdominion ]]; then
    eval $(op signin marsdominion)
   fi
