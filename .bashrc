@@ -38,7 +38,9 @@ export PATH=/usr/sbin:/sbin:/Users/mark.honomichl/bin:$PATH
 export PATH=/usr/local/bin:$PATH
 
 # Turn on AWS autocomplete
-complete -C '/usr/local/bin/aws_completer' aws
+if [ -f $VIRTUAL_ENV/bin/aws_completer ]; then
+  complete -C '$VIRTUAL_ENV/bin/aws_completer' aws
+fi
 
 # VirtualEnv Wrapper
 if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
