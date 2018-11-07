@@ -2,8 +2,21 @@
 #*********************************************************************#
 #!/usr/bin/env bash
 
+# Set the AWS Region
+setregion() {
+  export AWS_DEFAULT_REGION=$1
+}
+
 # Alias aws-vault
 alias av='aws-vault'
+
+# Alias aws-vault list
+alias avl='aws-vault list'
+
+# Remove an aws-vault session
+avr() {
+  aws-vault remove -s $1
+}
 
 # Log into acg-awsmaster AWS Account
 acgm() {
