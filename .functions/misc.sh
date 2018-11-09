@@ -6,5 +6,5 @@
 alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
 
 # Alias for tmuxinator
-alias mux='tmuxinator'
+alias mux='~/.gem/ruby/2.3.0/bin/tmuxinator'
 
