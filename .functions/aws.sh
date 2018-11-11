@@ -23,7 +23,7 @@ acgm() {
   if [[ -z $OP_SESSION_marsdominion ]]; then
    eval $(op signin marsdominion)
   fi
-  aws-vault exec -m $(op get totp "AWS - acg-awsmaster") acg2
+  aws-vault exec -m $(op get totp "AWS - acg-awsmaster") acgm
   unset OP_SESSION_marsdominion
 }
 
