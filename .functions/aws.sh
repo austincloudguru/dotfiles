@@ -23,7 +23,7 @@ acgm() {
   if [[ -z $OP_SESSION_marsdominion ]]; then
    eval $(op signin marsdominion)
   fi
-  aws-vault exec -t 4h --assume-role-ttl=4h -m $(op get totp "AWS - acg-awsmaster") acgm
+  aws-vault exec -t 4h --assume-role-ttl=1h -m $(op get totp "AWS - acg-awsmaster") acgm
   unset OP_SESSION_marsdominion
 }
 
@@ -32,6 +32,6 @@ acg2() {
   if [[ -z $OP_SESSION_marsdominion ]]; then
    eval $(op signin marsdominion)
   fi
-  aws-vault exec -t 4h --assume-role-ttl=4h -m $(op get totp "AWS - acg-awsmaster") acg2
+  aws-vault exec -t 4h --assume-role-ttl=1h -m $(op get totp "AWS - acg-awsmaster") acg2
   unset OP_SESSION_marsdominion
 }
