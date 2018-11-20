@@ -12,6 +12,11 @@ opoff() {
   unset OP_SESSION_marsdominion
 }
 
+getpwd() {
+  opon
+  op get item "$1" |jq -r '.details.fields[] |select(.designation=="password").value'
+  opoff
+}
 sshkey() {
   opon
   echo "$(op get item "acg-master" |jq -r '.details.notesPlain')"|ssh-add -
