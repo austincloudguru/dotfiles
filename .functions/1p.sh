@@ -2,24 +2,24 @@
 #*********************************************************************#
 #!/usr/bin/env bash
 
-opsignin() {
+opon() {
   if [[ -z $OP_SESSION_marsdominion ]]; then
     eval $(op signin marsdominion)
   fi
 }
 
-opsignout() {
+opoff() {
   unset OP_SESSION_marsdominion
 }
 
 sshkey() {
-  opsignin
+  opon
   echo "$(op get item "acg-master" |jq -r '.details.notesPlain')"|ssh-add -
-  opsignout
+  opoff
 }
 
 gittoken() {
-  opsignin
+  opon
   GIT_TOKEN=$(op get item "GitHub"|jq -r '.details.sections[] | select(.fields).fields[] | select(.t== "Personal Laptop").v')
-  opsignout
+  opoff
 }
