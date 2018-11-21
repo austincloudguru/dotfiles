@@ -20,18 +20,14 @@ avr() {
 
 # Log into acg-awsmaster AWS Account
 acgm() {
-  if [[ -z $OP_SESSION_marsdominion ]]; then
-   eval $(op signin marsdominion)
-  fi
-  aws-vault exec -t 4h --assume-role-ttl=1h -m $(op get totp "AWS - acg-awsmaster") acgm
-  unset OP_SESSION_marsdominion
+  opon
+  aws-vault exec -t 4h --assume-role-ttl=1h -m $(getmfa "AWS - acg-awsmaster") acgm
+  opoff
 }
 
 # Log into acg-aws2 AWS Account
 acg2() {
-  if [[ -z $OP_SESSION_marsdominion ]]; then
-   eval $(op signin marsdominion)
-  fi
-  aws-vault exec -t 4h --assume-role-ttl=1h -m $(op get totp "AWS - acg-awsmaster") acg2
-  unset OP_SESSION_marsdominion
+  opon
+  aws-vault exec -t 4h --assume-role-ttl=1h -m $(getmfa "AWS - acg-awsmaster") acg2
+  opoff
 }
