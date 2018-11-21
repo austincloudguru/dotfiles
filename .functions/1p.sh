@@ -18,6 +18,13 @@ getpwd() {
   op get item "$1" |jq -r '.details.fields[] |select(.designation=="password").value'
   opoff
 }
+
+getmfa() {
+  opon
+  op get totp "$1"
+  opoff
+}
+
 sshkey() {
   opon
   echo "$(op get item "acg-master" |jq -r '.details.notesPlain')"|ssh-add -
