@@ -9,6 +9,7 @@ opon() {
 }
 
 opoff() {
+  op signout
   unset OP_SESSION_marsdominion
 }
 
