@@ -2,6 +2,12 @@
 #*********************************************************************#
 #!/usr/bin/env bash
 
+# Get the Account Number
+getaccount() {
+  aws sts get-caller-identity \
+    --query "Account" --output text
+}
+
 # Set the AWS Region
 setregion() {
   export AWS_DEFAULT_REGION=$1
