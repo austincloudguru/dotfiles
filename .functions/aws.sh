@@ -28,12 +28,16 @@ avr() {
 acgm() {
   opon
   aws-vault exec -t 4h --assume-role-ttl=1h -m $(getmfa "AWS - acg-awsmaster") acgm
-  opoff
+}
+
+# Log into acg-aws1 AWS Account
+acg1() {
+  opon
+  aws-vault exec -t 4h --assume-role-ttl=1h -m $(getmfa "AWS - acg-awsmaster") acg1
 }
 
 # Log into acg-aws2 AWS Account
 acg2() {
   opon
   aws-vault exec -t 4h --assume-role-ttl=1h -m $(getmfa "AWS - acg-awsmaster") acg2
-  opoff
 }
