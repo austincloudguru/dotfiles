@@ -4,6 +4,9 @@
 case "$OSTYPE" in
   darwin*)
     export PS1="\$(git_prompt)(\[\033[32m\]\[\] \h:\[\033[36;1m\]\w\[\033[m\]) \n% "
+    # GPG for SSH
+    export "GPG_TTY=$(tty)"
+    export "SSH_AUTH_SOCK=${HOME}/.gnupg/S.gpg-agent.ssh"
     ;;
   *)
     export PS1="\$(git_prompt)(\[\033[32m\] \h:\[\033[36;1m\]\w\[\033[m\]) \n% "
@@ -54,6 +57,3 @@ if [[ -n $AWS_VAULT ]]; then
   workon aws
 fi
 
-# GPG for SSH
-export "GPG_TTY=$(tty)"
-export "SSH_AUTH_SOCK=${HOME}/.gnupg/S.gpg-agent.ssh"
