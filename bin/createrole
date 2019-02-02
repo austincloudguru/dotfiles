@@ -2,7 +2,7 @@
 #*******************************************************************************
 # Name: createrole
 # Description: Easily create ansible-galaxy roles in github
-# Author: Mark Honomichl (mars at marsdominion dot com)
+# Author: Mark Honomichl (mark at austincloud dot guru)
 #*******************************************************************************
 
 #****************
