@@ -47,3 +47,10 @@ acgmon() {
   opon
   aws-vault exec -t 4h --assume-role-ttl=1h -m $(getmfa "AWS - acg-awsmaster") acgmon
 }
+
+# Log into acg accounts
+acg() {
+  opon
+  aws-vault exec -t 4h --assume-role-ttl=1h -m $(getmfa "aws-acg-master") acg-$1
+
+}
