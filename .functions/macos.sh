@@ -18,4 +18,6 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
       alias od='~/.odrive/bin/${OD_VERSION}/odrive.py'
     fi
 
+    alias abs='ssh abs.austincloud.guru -t tmuxinator fs'
+
 fi

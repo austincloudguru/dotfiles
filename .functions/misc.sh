@@ -5,6 +5,11 @@
 # Alias to get my current IP Address
 alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
 
-# Alias for tmuxinator
-alias mux='~/.gem/ruby/2.3.0/bin/tmuxinator'
+
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  # Alias for tmuxinator
+  alias mux='~/.gem/ruby/2.3.0/bin/tmuxinator'
+else
+  alias mux='/usr/local/bin/tmuxinator'
+fi
 
