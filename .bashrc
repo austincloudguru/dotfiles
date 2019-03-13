@@ -53,7 +53,9 @@ if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
 fi
 
 if [[ -n $AWS_VAULT ]]; then
-  export PS1="\[\e[33;38m\](aws-vault: $AWS_VAULT)\n\[\e[0m\]$PS1"
-  workon aws
+  export PS1="\[\e[38;5;82m\](aws-vault: $AWS_VAULT)\n\[\e[0m\]$PS1"
+  if [[ -n $VIRTUAL_ENV ]]; then
+    workon $(basename $VIRTUAL_ENV)
+  fi
 fi
 
