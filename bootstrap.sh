@@ -14,6 +14,8 @@ function doIt() {
         --exclude "LICENSE" \
         --exclude ".gitignore" \
         -avh --no-perms . ~;
+    chmod 600 ~/.ssh
+    chmod 600 ~/.ssh/authorized_keys
     source ~/.bash_profile;
 }
 
