@@ -5,6 +5,9 @@
 # Alias to get my current IP Address
 alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
 
+# Resource profiles
+alias resource='source ~/.bash_profile'
+
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
   # Alias for tmuxinator
