@@ -18,7 +18,9 @@ windows:
       layout: even-horizontal
       panes:
         - terminal_1:
+          - workon aws
         - terminal_2:
+          - workon aws
   - quad:
       layout: tiled
       panes:
