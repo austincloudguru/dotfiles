@@ -1,0 +1,25 @@
+# /home/mark.honomichl/.config/tmuxinator/main.yml
+
+name: bastion
+root: ~/
+
+windows:
+  - main:
+      layout: even-horizontal
+      panes:
+        - terminal_1:
+        - terminal_2:
+  - aws:
+      layout: even-horizontal
+      panes:
+        - terminal_1:
+          - workon aws
+        - terminal_2:
+          - workon aws
+  - quad:
+      layout: tiled
+      panes:
+        - terminal_1:
+        - terminal_2:
+        - terminal_2:
+        - terminal_2:
