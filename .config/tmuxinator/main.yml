@@ -9,11 +9,6 @@ windows:
       panes:
         - terminal_1:
         - terminal_2:
-  - bastion:
-      layout: even-horizontal
-      panes:
-        - terminal_1:
-        - terminal_2:
   - aws:
       layout: even-horizontal
       panes:
@@ -35,4 +30,4 @@ windows:
           - cd ~/mac-ansible/macos-config
         - dotfiles:
           - cd ~/Documents/sourceCode/austincloudguru/dotfiles/
-  - single:
+  - bastion:
