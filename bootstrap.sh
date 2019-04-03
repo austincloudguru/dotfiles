@@ -15,6 +15,7 @@ function doIt() {
         --exclude ".gitignore" \
         -avh --no-perms . ~;
     chmod 700 ~/.ssh
+    chmod 700 ~/.gnupg
     chmod 600 ~/.ssh/authorized_keys
     source ~/.bash_profile;
 }
