@@ -82,7 +82,7 @@ aws-avc() {
       for a in `aws ec2 describe-volumes \
         --region $region \
         --filters "Name=status,Values=available" \
-        --query "Volumes[?CreateTime<='$(date -v -3d +%Y-%m-%d)'].VolumeId" \
+        --query "Volumes[?CreateTime<='$(date -v -${1}d +%Y-%m-%d)'].VolumeId" \
         --output text`
       do
         echo "Deleting $a..."
