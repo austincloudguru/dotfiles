@@ -61,6 +61,20 @@ then
   exit
 fi
 
+# Make sure molecule is available 
+if ! $(hash molecule &>/dev/null);
+then
+  echo "Make sure you are in your ansible environment"
+  exit
+fi
+
+# Make sure GIT_TOKEN is set
+if [ -z "$GIT_TOKEN" ]
+then
+  echo "Make Sure you have your GIT_TOKEN set"
+  exit
+fi
+
 # Check to see if the Repo already exists
 gitrepo=`curl -s -G https://api.github.com/search/repositories?q=$rolename+user:$gitaccount \
 -H "Accept: application/vnd.github.preview" \
