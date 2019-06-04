@@ -16,3 +16,4 @@ else
   alias mux='/usr/local/bin/tmuxinator'
 fi
 
+alias muxssh='tmux setenv SSH_AUTH_SOCK $SSH_AUTH_SOCK'
