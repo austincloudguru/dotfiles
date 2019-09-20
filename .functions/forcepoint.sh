@@ -8,11 +8,11 @@ cdp-dev() {
 }
 
 # AWS CDP-DEV account
-cdp-dev() {
+cdp-cicd() {
   aws-okta exec cdp-cicd -- /bin/bash
 }
 
 # AWS fp-cloudsec-main account
-cdp-dev() {
-  aws-okta exec cdp-main -- /bin/bash
+cdp-main() {
+  aws-okta exec fp-cloudsec-main -- /bin/bash
 }

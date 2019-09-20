@@ -56,9 +56,9 @@ if [[ -n $AWS_VAULT ]]; then
   fi
 fi
 
-# if [[ -n $AWS_OKTA_PROFILE ]]; then
-#   export PS1="\[\e[38;5;82m\](aws-okta: $AWS_OKTA_PROFILE)\n\[\e[0m\]$PS1"
-#   if [[ -n $VIRTUAL_ENV ]]; then
-#     workon $(basename $VIRTUAL_ENV)
-#   fi
-# fi
+if [[ -n $AWS_OKTA_PROFILE ]]; then
+  export PS1="\[\e[38;5;82m\](aws-okta: $AWS_OKTA_PROFILE)\n\[\e[0m\]$PS1"
+  if [[ -n $VIRTUAL_ENV ]]; then
+    workon $(basename $VIRTUAL_ENV)
+  fi
+fi
