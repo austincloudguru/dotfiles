@@ -14,4 +14,8 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 
     alias abs='ssh abs.austincloud.guru -t tmuxinator bastion'
 
+
+    # Source rvm
+    source /Users/mark.honomichl/.rvm/scripts/rvm
+
 fi
