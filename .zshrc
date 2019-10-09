@@ -53,7 +53,8 @@ if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
 fi
 
 if [[ -n $AWS_VAULT ]]; then
-  export PS1="\[\e[38;5;82m\](aws-vault: $AWS_VAULT)\n\[\e[0m\]$PS1"
+  export PS1="%{$fg[yellow]%}(aws-okta: $AWS_VAULT)%{$reset_color%}
+$PS1"
   if [[ -n $VIRTUAL_ENV ]]; then
     workon $(basename $VIRTUAL_ENV)
   fi
