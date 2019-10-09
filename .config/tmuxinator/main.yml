@@ -29,5 +29,5 @@ windows:
         - mac-update-dir:
           - cd ~/mac-ansible/macos-config
         - dotfiles:
-          - cd ~/Documents/sourceCode/austincloudguru/dotfiles/
+          - cd ~/source/acg/dotfiles/
   - bastion:
