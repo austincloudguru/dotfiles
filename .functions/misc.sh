@@ -11,7 +11,7 @@ alias resource='source ~/.bash_profile'
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
   # Alias for tmuxinator
-  alias mux='~/.gem/ruby/2.3.0/bin/tmuxinator'
+  alias mux='$(which tmuxinator)'
 else
   alias mux='/usr/local/bin/tmuxinator'
 fi
