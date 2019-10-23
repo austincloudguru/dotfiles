@@ -30,4 +30,6 @@ windows:
           - cd ~/mac-ansible/macos-config
         - dotfiles:
           - cd ~/source/acg/dotfiles/
-  - bastion:
+  - acg:
+  - stg-bastion:
+  - prod-bastion:
