@@ -15,8 +15,11 @@ case "$OSTYPE" in
   *)
     PS1='$(git_prompt)(%{$fg[green]%} %m: %{$reset_color%}%{$fg[cyan]%}%~%{$reset_color%})
 %# '
+    # Use file if on bastion
+    export AWS_OKTA_BACKEND=file
     ;;
 esac
+
 
 # Set vi as the editor
 bindkey -v
@@ -51,6 +54,8 @@ if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
   export WORKON_HOME=~/.virtualenvs
   source /usr/local/bin/virtualenvwrapper.sh
 fi
+
+export AWS_SESSION_TTL=4h
 
 if [[ -n $AWS_VAULT ]]; then
   export PS1="%{$fg[yellow]%}(aws-okta: $AWS_VAULT)%{$reset_color%}
