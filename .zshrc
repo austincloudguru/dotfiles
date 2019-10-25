@@ -13,6 +13,8 @@ case "$OSTYPE" in
     export "SSH_AUTH_SOCK=${HOME}/.gnupg/S.gpg-agent.ssh"
     ;;
   *)
+    autoload -U colors && colors
+    setopt PROMPT_SUBST
     PS1='$(git_prompt)(%{$fg[green]%} %m: %{$reset_color%}%{$fg[cyan]%}%~%{$reset_color%})
 %# '
     # Use file if on bastion
