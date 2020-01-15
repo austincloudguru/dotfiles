@@ -6,7 +6,7 @@ case "$OSTYPE" in
   darwin*)
     autoload -U colors && colors
     setopt PROMPT_SUBST
-    PS1='$(git_prompt)(%{$fg[green]%} %m: %{$reset_color%}%{$fg[cyan]%}%~%{$reset_color%})
+    PS1='$(git_prompt)(%{$fg[green]%} %m: %{$reset_color%}%{$fg[blue]%}%~%{$reset_color%})
 %# '
     # GPG for SSH
     export "GPG_TTY=$(tty)"
@@ -15,7 +15,7 @@ case "$OSTYPE" in
   *)
     autoload -U colors && colors
     setopt PROMPT_SUBST
-    PS1='$(git_prompt)(%{$fg[green]%} %m: %{$reset_color%}%{$fg[cyan]%}%~%{$reset_color%})
+    PS1='$(git_prompt)(%{$fg[green]%} %m: %{$reset_color%}%{$fg[blue]%}%~%{$reset_color%})
 %# '
     # Use file if on bastion
     export AWS_OKTA_BACKEND=file
@@ -28,7 +28,8 @@ bindkey -v
 unamestr=`uname`
 if [[ "$unamestr" == 'Darwin' ]]; then
   export CLICOLOR=1
-  export LSCOLORS=GxBxhxDxfxhxhxhxhxcxcx
+  export LSCOLORS=ExFxBxDxBxegedabagacad
+  #export LSCOLORS=GxBxhxDxfxhxhxhxhxcxcx
 fi
 
 # Source the functions directory
