@@ -1,6 +1,10 @@
 "# THIS FILE IS UNDER VERSION CONTROL.  MAKE CHANGES IN YOUR REPO!!!!! #
 "#*********************************************************************#
 
+set t_Co=256
+set background=light
+colorscheme PaperColor
+
 set nobackup
 set noswapfile
 if &t_Co > 2 || has("gui_running")
