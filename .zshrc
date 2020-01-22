@@ -6,7 +6,7 @@ case "$OSTYPE" in
   darwin*)
     autoload -U colors && colors
     setopt PROMPT_SUBST
-    PS1='$(git_prompt)(%{$fg[green]%} %m: %{$reset_color%}%{$fg[blue]%}%~%{$reset_color%})
+    PS1='$(s2aprompt)$(git_prompt)(%{$fg[green]%} %m: %{$reset_color%}%{$fg[blue]%}%~%{$reset_color%})
 %# '
     # GPG for SSH
     export "GPG_TTY=$(tty)"
@@ -15,7 +15,7 @@ case "$OSTYPE" in
   *)
     autoload -U colors && colors
     setopt PROMPT_SUBST
-    PS1='$(git_prompt)(%{$fg[green]%} %m: %{$reset_color%}%{$fg[blue]%}%~%{$reset_color%})
+    PS1='$(s2aprompt)$(git_prompt)(%{$fg[green]%} %m: %{$reset_color%}%{$fg[blue]%}%~%{$reset_color%})
 %# '
     # Use file if on bastion
     export AWS_OKTA_BACKEND=file
@@ -55,24 +55,6 @@ if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
   export PIP_REQUIRE_VIRTUALENV=true
   export WORKON_HOME=~/.virtualenvs
   source /usr/local/bin/virtualenvwrapper.sh
-fi
-
-export AWS_SESSION_TTL=4h
-
-if [[ -n $AWS_VAULT ]]; then
-  export PS1="%{$fg[yellow]%}(aws-okta: $AWS_VAULT)%{$reset_color%}
-$PS1"
-  if [[ -n $VIRTUAL_ENV ]]; then
-    workon $(basename $VIRTUAL_ENV)
-  fi
-fi
-
-if [[ -n $AWS_OKTA_PROFILE ]]; then
-  export PS1="%{$fg[yellow]%}(aws-okta: $AWS_OKTA_PROFILE)%{$reset_color%}
-$PS1"
-  if [[ -n $VIRTUAL_ENV ]]; then
-    workon $(basename $VIRTUAL_ENV)
-  fi
 fi
 
 # tabtab source for serverless package
