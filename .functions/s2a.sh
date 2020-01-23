@@ -19,6 +19,7 @@ s2a() {
 s2ap() {
   if [[ -z $1 ]]; then
     unset AWS_PROFILE
+    unset AWS_CREDS_EXPIRE
   else
     export AWS_PROFILE=$1
     export AWS_CREDS_EXPIRE=$(python3 - "$1" << END
