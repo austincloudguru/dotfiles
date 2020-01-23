@@ -11,6 +11,16 @@ case "$OSTYPE" in
     # GPG for SSH
     export "GPG_TTY=$(tty)"
     export "SSH_AUTH_SOCK=${HOME}/.gnupg/S.gpg-agent.ssh"
+    # Turn on AWS autocomplete
+    if [ -f  /usr/local/share/zsh/site-functions/aws_zsh_completer.sh ]; then
+      autoload -Uz compinit
+      compinit
+      source /usr/local/share/zsh/site-functions/aws_zsh_completer.sh       
+    fi
+    # CLI Color Scheme
+    export CLICOLOR=1
+    export LSCOLORS=ExFxBxDxBxegedabagacad # Light
+    #export LSCOLORS=GxBxhxDxfxhxhxhxhxcxcx # Dark
     ;;
   *)
     autoload -U colors && colors
@@ -25,13 +35,6 @@ esac
 # Set vi as the editor
 bindkey -v
 
-unamestr=`uname`
-if [[ "$unamestr" == 'Darwin' ]]; then
-  export CLICOLOR=1
-  export LSCOLORS=ExFxBxDxBxegedabagacad
-  #export LSCOLORS=GxBxhxDxfxhxhxhxhxcxcx
-fi
-
 # Source the functions directory
 if [ -d ~/.functions ]; then
     for F in ~/.functions/*; do
@@ -42,11 +45,6 @@ fi
 # set the path to include the sbin directories
 export PATH=/usr/sbin:/sbin:/Users/mark.honomichl/bin:$PATH
 export PATH=/usr/local/bin:$PATH
-
-# Turn on AWS autocomplete
-if [ -f $VIRTUAL_ENV/bin/aws_completer ]; then
-  complete -C '$VIRTUAL_ENV/bin/aws_completer' aws
-fi
 
 # VirtualEnv Wrapper
 if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
