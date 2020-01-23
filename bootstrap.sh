@@ -17,7 +17,7 @@ function doIt() {
     chmod 700 ~/.ssh
     chmod 700 ~/.gnupg
     chmod 600 ~/.ssh/authorized_keys
-    source ~/.bash_profile;
+    source ~/.zsh_profile;
 }
 
 if [ "$1" == "--force" -o "$1" == "-f" ]; then
