@@ -5,6 +5,7 @@ cd "$(dirname "${BASH_SOURCE}")";
 git pull origin master;
 
 function doIt() {
+    echo "Updating"
     rsync --exclude ".git/" \
         --exclude ".DS_Store" \
         --exclude ".osx" \
@@ -23,11 +24,9 @@ function doIt() {
 if [[ "$1" == "--force" || "$1" == "-f" ]]; then
     doIt;
 else
-    printf '%s ' 'This may overwrite existing files in your home directory. Are you sure? (y/n)' 
-    read ans
-    echo "";
-    if [[ ans =~ ^[Yy]$ ]]; then
-        doIt;
-    fi;
+    if read -q '? This may overwrite existing files in your home directory. Are you sure? (y/n) ?'; then
+      echo "\n"
+      doIt; 
+    fi
 fi;
 unset doIt;
