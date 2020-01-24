@@ -21,7 +21,13 @@ s2ap() {
     unset AWS_PROFILE
     unset AWS_CREDS_EXPIRE
   else
-    export AWS_CREDS_EXPIRE=$(python3 - "$1" << END
+    subaccounts=(acg-dev acg-shared acg-prod)
+    if [[ ${subaccounts[(ie)$1]} -le ${#subaccounts} ]]; then
+      master_account="acg-master"
+    else
+      master_account=$1
+    fi
+    export AWS_CREDS_EXPIRE=$(python3 - "$master_account" << END
 import configparser
 import sys
 cred_file = "/Users/mark.honomichl/.aws/credentials"
