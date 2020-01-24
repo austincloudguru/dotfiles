@@ -21,7 +21,6 @@ s2ap() {
     unset AWS_PROFILE
     unset AWS_CREDS_EXPIRE
   else
-    export AWS_PROFILE=$1
     export AWS_CREDS_EXPIRE=$(python3 - "$1" << END
 import configparser
 import sys
@@ -30,8 +29,18 @@ account = sys.argv[1]
 config = configparser.ConfigParser()
 config.sections()
 config.read(cred_file)
-print(config[account]['x_security_token_expires']) 
+try:
+  print(config[account]['x_security_token_expires'])
+except KeyError:
+  print("unset")
 END
 )
+
+    if [[ $AWS_CREDS_EXPIRE == "unset" ]];then
+      echo "Profile doesn't exist! \n"
+      unset AWS_CREDS_EXPIRE
+    else
+      export AWS_PROFILE=$1
+    fi
   fi
 }
