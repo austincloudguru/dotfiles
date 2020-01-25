@@ -1,6 +1,8 @@
 #!/usr/bin/env zsh
 
-cd "$(dirname "${BASH_SOURCE}")";
+#cd "$(dirname "${BASH_SOURCE}")";
+
+cd $(dirname ${(%):-%x})
 
 git pull origin master;
 
