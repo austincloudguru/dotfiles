@@ -44,5 +44,5 @@ gitgood() {
     fi
   printf "\n${RESET}"
   done
-  cd -
+  cd - >>/dev/null
 }
