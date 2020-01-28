@@ -36,13 +36,15 @@ config = configparser.ConfigParser()
 config.sections()
 config.read(cred_file)
 try:
-  print(config[account]['x_security_token_expires'])
+  expire_string = config[account]['x_security_token_expires']
+  print(expire_string[11:19])
 except KeyError:
   print("unset")
 END
 )
 
-    if [[ $AWS_CREDS_EXPIRE == "unset" ]];then
+    if [[ $AWS_CREDS_EXPIRE == "unset" && $master_account != "gc-shared" ]];then
+      #if [[ $master_account == "gc-shared" ]];then
       echo "Profile doesn't exist! \n"
       unset AWS_CREDS_EXPIRE
     else
