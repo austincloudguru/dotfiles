@@ -25,7 +25,7 @@ case "$OSTYPE" in
   *)
     autoload -U colors && colors
     setopt PROMPT_SUBST
-    PS1='$(s2aprompt)$(git_prompt)(%{$fg[green]%} %m: %{$reset_color%}%{$fg[blue]%}%~%{$reset_color%})
+    PS1='$(s2aprompt)$(git_prompt)(%{$fg[green]%}🐧 %m: %{$reset_color%}%{$fg[blue]%}%~%{$reset_color%})
 %# '
     # Use file if on bastion
     export AWS_OKTA_BACKEND=file
