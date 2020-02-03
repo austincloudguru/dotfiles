@@ -9,7 +9,12 @@ s2aprompt() {
 }
 
 s2al() {
-  saml2aws login -a $1
+  if [[ $1 == "gov-west" ]]; then
+    export AWS_DEFAULT_REGION=us-gov-west-1
+    gimme-aws-creds
+  else 
+    saml2aws login -a $1
+  fi
 }
 
 s2a() {
@@ -18,8 +23,7 @@ s2a() {
 
 s2ap() {
   if [[ -z $1 ]]; then
-    unset AWS_PROFILE
-    unset AWS_CREDS_EXPIRE
+    unset AWS_PROFILE unset AWS_CREDS_EXPIRE
     unset AWS_SDK_LOAD_CONFIG
   else
     subaccounts=(acg-dev acg-shared acg-prod)
@@ -45,28 +49,12 @@ except KeyError:
 END
 )
 
-    if [[ $AWS_CREDS_EXPIRE == "unset" && $master_account != "gc-shared" ]];then
+    if [[ $AWS_CREDS_EXPIRE == "unset" && $master_account != "gov-west" ]];then
       #if [[ $master_account == "gc-shared" ]];then
       echo "Profile doesn't exist! \n"
       unset AWS_CREDS_EXPIRE
     else
       export AWS_PROFILE=$1
     fi
-  fi
-}
-
-getgov() {
-  if [[ -z $1 ]]; then
-    unset AWS_PROFILE
-    unset AWS_CREDS_EXPIRE
-    unset AWS_DEFAULT_REGION
-    unset AWS_ACCESS_KEY_ID
-    unset AWS_SECRET_ACCESS_KEY
-    unset AWS_SESSION_TOKEN
-    unset AWS_SECURITY_TOKEN
-  else
-    export AWS_DEFAULT_REGION=us-gov-${1}-1
-    eval $(gimme-aws-creds -m |tail -4)
-    export AWS_PROFILE=gov-${1}
   fi
 }
