@@ -20,10 +20,12 @@ s2ap() {
   if [[ -z $1 ]]; then
     unset AWS_PROFILE
     unset AWS_CREDS_EXPIRE
+    unset AWS_SDK_LOAD_CONFIG
   else
     subaccounts=(acg-dev acg-shared acg-prod)
     if [[ ${subaccounts[(ie)$1]} -le ${#subaccounts} ]]; then
       master_account="acg-master"
+      export AWS_SDK_LOAD_CONFIG=1
     else
       master_account=$1
     fi
