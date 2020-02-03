@@ -6,7 +6,7 @@
 alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
 
 # Resource profiles
-alias resource='source ~/.bash_profile'
+alias resource='source ~/.zshrc'
 
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
