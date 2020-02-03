@@ -52,3 +52,19 @@ END
     fi
   fi
 }
+
+getgov() {
+  if [[ -z $1 ]]; then
+    unset AWS_PROFILE
+    unset AWS_CREDS_EXPIRE
+    unset AWS_DEFAULT_REGION
+    unset AWS_ACCESS_KEY_ID
+    unset AWS_SECRET_ACCESS_KEY
+    unset AWS_SESSION_TOKEN
+    unset AWS_SECURITY_TOKEN
+  else
+    export AWS_DEFAULT_REGION=us-gov-${1}-1
+    eval $(gimme-aws-creds -m |tail -4)
+    export AWS_PROFILE=gov-${1}
+  fi
+}
