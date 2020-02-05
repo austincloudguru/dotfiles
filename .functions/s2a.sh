@@ -50,7 +50,6 @@ END
 )
 
     if [[ $AWS_CREDS_EXPIRE == "unset" && $master_account != "gov-west" ]];then
-      #if [[ $master_account == "gc-shared" ]];then
       echo "Profile doesn't exist! \n"
       unset AWS_CREDS_EXPIRE
     else

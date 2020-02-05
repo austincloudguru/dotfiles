@@ -39,6 +39,10 @@ tf() {
         export PROJECT=tools-production-eu
         export AWS_REGION=eu-west-1
         ;;
+    cdp-gw)
+        export PROJECT=tools-govcloudw-us
+        export AWS_REGION=us-gov-west-1
+        ;;
     *)
         echo "usage: $0 {acg-dev | acg-shared | acg-pdod | acg-master | cdp-du | cdp-su | cdp-se | cdp-pu | cdp-pe} "
   esac
