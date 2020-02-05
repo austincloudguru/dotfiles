@@ -66,6 +66,10 @@ fi
 [[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+if [ -d ~/.rbenv ]; then
+  export PATH=~/.rbenv/bin:$PATH
+fi
+
 eval "$(rbenv init -)"
 export PATH="$PATH:$HOME/.rvm/bin"
 
