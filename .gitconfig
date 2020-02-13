@@ -6,3 +6,5 @@
   signingkey = 0x7B78E608B3E7AE97
 [commit]
   gpgsign = true
+[init]
+	templateDir = /Users/mark.honomichl/.git-template
