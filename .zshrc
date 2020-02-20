@@ -68,9 +68,9 @@ fi
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 if [ -d ~/.rbenv ]; then
   export PATH=~/.rbenv/bin:$PATH
+  eval "$(rbenv init -)"
 fi
 
-eval "$(rbenv init -)"
 export PATH="$PATH:$HOME/.rvm/bin"
 
 #just makingsure
