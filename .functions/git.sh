@@ -3,22 +3,18 @@
 #!/usr/bin/env bash
 
 git_prompt() {
-  RED=$(tput setaf 1)
-  YELLOW="$(tput setaf 3)"
-  GREEN="\033[0;32m"
-  RESET=$(tput sgr0)
   BRANCH=$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/*\(.*\)/\1/')
 
   if [ ! -z $BRANCH ]; then
-    printf "$YELLOW($BRANCH"
+    printf "$fg[yellow][ $BRANCH"
 
     if [ ! -z "$(git status --short)" ]; then
-      printf " ${RED}✗"
+      printf " $fg[red]✗"
     else
-      printf " ${GREEN}✔"
+      printf " $fg[green]✔"
     fi
 
-    printf "${YELLOW} )\n${RESET}"
+    printf "$fg[yellow] ]\n${reset_color}"
   fi
 }
 

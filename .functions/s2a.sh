@@ -2,9 +2,7 @@
 
 s2aprompt() {
   if [[ -v AWS_PROFILE ]]; then
-    CYAN="$(tput setaf 6)"
-    RESET=$(tput sgr0)
-    printf "$CYAN(saml2aws: $AWS_PROFILE expires: $AWS_CREDS_EXPIRE)\n$RESET"
+    printf "$fg[cyan][ saml2aws: $AWS_PROFILE expires: $AWS_CREDS_EXPIRE ]\n${reset_color}"
   fi
 }
 
