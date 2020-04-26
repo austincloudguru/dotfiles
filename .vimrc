@@ -2,8 +2,8 @@
 "#*********************************************************************#
 
 set t_Co=256
-set background=light
-colorscheme PaperColor
+"set background=light
+"colorscheme PaperColor
 
 set nobackup
 set noswapfile
