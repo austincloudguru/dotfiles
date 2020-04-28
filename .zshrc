@@ -1,13 +1,10 @@
 # THIS FILE IS UNDER VERSION CONTROL.  MAKE CHANGES IN YOUR REPO!!!!! #
 #*********************************************************************#
 
-# Create the Prompt
+# OS Specific Config
 case "$OSTYPE" in
   darwin*)
-    autoload -U colors && colors
-    setopt PROMPT_SUBST
-    PS1='$(s2aprompt)$(git_prompt)(%{$fg[green]%} %m: %{$reset_color%}%{$fg[blue]%}%~%{$reset_color%})
-%# '
+    export SYSTEM_ICON=""
     # GPG for SSH
     export "GPG_TTY=$(tty)"
     export "SSH_AUTH_SOCK=${HOME}/.gnupg/S.gpg-agent.ssh"
@@ -19,18 +16,18 @@ case "$OSTYPE" in
     fi
     # CLI Color Scheme
     export CLICOLOR=1
-    export LSCOLORS=ExFxBxDxBxegedabagacad # Light
-    #export LSCOLORS=GxBxhxDxfxhxhxhxhxcxcx # Dark
+    export LSCOLORS=GxBxhxDxfxhxhxhxhxcxcx # Dark
     ;;
   *)
-    autoload -U colors && colors
-    setopt PROMPT_SUBST
-    PS1='$(s2aprompt)$(git_prompt)(%{$fg[green]%}🐧 %m: %{$reset_color%}%{$fg[blue]%}%~%{$reset_color%})
-%# '
-    # Use file if on bastion
-    export AWS_OKTA_BACKEND=file
+    export SYSTEM_ICON="🐧"
     ;;
 esac
+
+# Setup Prompt
+autoload -U colors && colors
+setopt PROMPT_SUBST
+PS1='$(s2aprompt)$(git_prompt)(%{$fg[green]%}$SYSTEM_ICON %m: %{$reset_color%}%{$fg[blue]%}%~%{$reset_color%})
+%# '
 
 # Set vi as the editor
 bindkey -v
@@ -72,5 +69,3 @@ if [ -d ~/.rbenv ]; then
 fi
 
 export PATH="$PATH:$HOME/.rvm/bin"
-
-#just makingsure
