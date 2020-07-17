@@ -2,8 +2,8 @@
 #*********************************************************************#
 [user]
   name = Mark Honomichl
-  email = mark@austincloud.guru
-  signingkey = 0x7B78E608B3E7AE97
+  email = mark@honomichl.net
+  signingkey = 0x31199E24CA8F2734
 [commit]
   gpgsign = true
 [init]
