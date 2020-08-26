@@ -7,7 +7,7 @@ s2aprompt() {
 }
 
 s2al() {
-  if [[ $1 == "gov-west" ]]; then
+  if [[ $1 == "cdp-gov" ]]; then
     export AWS_DEFAULT_REGION=us-gov-west-1
     gimme-aws-creds
   else 
@@ -47,7 +47,7 @@ except KeyError:
 END
 )
 
-    if [[ $AWS_CREDS_EXPIRE == "unset" && $master_account != "gov-west" ]];then
+    if [[ $AWS_CREDS_EXPIRE == "unset" && $master_account != "cdp-gov" ]];then
       echo "Profile doesn't exist! \n"
       unset AWS_CREDS_EXPIRE
     else
