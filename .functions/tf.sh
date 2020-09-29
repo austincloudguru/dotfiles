@@ -40,7 +40,7 @@ tf() {
         export AWS_REGION=eu-west-1
         ;;
     cdp-gw)
-        export PROJECT=tools-govcloudw-us
+        export PROJECT=tools-govcloud-west
         export AWS_REGION=us-gov-west-1
         ;;
     *)
