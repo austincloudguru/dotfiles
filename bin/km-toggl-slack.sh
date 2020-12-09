@@ -18,7 +18,7 @@ DND_OUTPUT=false
 
 RUN_MODE=$KMVAR_run_mode
 description=$KMVAR_description
-project=$KMVAR_project
+PID=$KMVAR_project
 tags=$KMVAR_tags
 
 start() 
