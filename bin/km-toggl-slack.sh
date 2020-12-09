@@ -10,8 +10,8 @@
 #****************
 SLACK_API="https://slack.com/api"
 TOGGL_API="https://api.track.toggl.com/api/v8"
-TOGGL_TOKEN=''
-SLACK_TOKEN=''
+TOGGL_TOKEN=`cat $HOME/.netrc |grep toggl|cut -d ' ' -f 6`
+SLACK_TOKEN=`cat $HOME/.netrc |grep slack|cut -d ' ' -f 6`
 FOCUS_TIME=`date -v+25M +'%s'`
 STATUS_OUTPUT=false
 DND_OUTPUT=false
