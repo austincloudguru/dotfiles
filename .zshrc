@@ -68,4 +68,6 @@ if [ -d ~/.rbenv ]; then
   eval "$(rbenv init -)"
 fi
 
+export VAULT_ADDR=https://vault.cicd.cloud.fpdev.io:8200
+
 export PATH="$PATH:$HOME/.rvm/bin"
