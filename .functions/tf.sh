@@ -3,18 +3,6 @@
 #!/usr/bin/env bash
 tf() {
   case $1 in
-    acg-dev) 
-        export PROJECT=acg-dev
-        export AWS_REGION=us-east-1
-        ;;
-    acg-shared) 
-        export PROJECT=acg-shared
-        export AWS_REGION=us-east-1
-        ;;
-    acg-prod) 
-        export PROJECT=acg-prod
-        export AWS_REGION=us-east-1
-        ;;
     acg-master) 
         export PROJECT=acg-master
         export AWS_REGION=us-east-1
@@ -22,26 +10,41 @@ tf() {
     cdp-du)
         export PROJECT=tools-dev-us
         export AWS_REGION=us-west-2
+        export AWS_ORG_ID="d-90676f2986"
         ;;
     cdp-su)
         export PROJECT=tools-staging-us
         export AWS_REGION=us-east-2
+        export AWS_ORG_ID="d-90676f2986"
         ;;
     cdp-se)
         export PROJECT=tools-staging-eu
         export AWS_REGION=eu-west-1
+        export AWS_ORG_ID="d-90676f2986"
         ;;
     cdp-pu)
         export PROJECT=tools-production-us
         export AWS_REGION=us-east-2
+        export AWS_ORG_ID="d-90676f2986"
         ;;
     cdp-pe)
         export PROJECT=tools-production-eu
         export AWS_REGION=eu-west-1
+        export AWS_ORG_ID="d-90676f2986"
         ;;
     cdp-gw)
         export PROJECT=tools-govcloud-west
         export AWS_REGION=us-gov-west-1
+        ;;
+    sec-du)
+        export PROJECT=security-dev
+        export AWS_REGION=us-east-1
+        export AWS_ORG_ID="d-90676ccecb"
+        ;;
+    sec-pu)
+        export PROJECT=security-prod
+        export AWS_REGION=us-east-1
+        export AWS_ORG_ID="d-90676f2986"
         ;;
     *)
         echo "usage: $0 {acg-dev | acg-shared | acg-pdod | acg-master | cdp-du | cdp-su | cdp-se | cdp-pu | cdp-pe} "
