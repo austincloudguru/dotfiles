@@ -42,6 +42,7 @@ fi
 # set the path to include the sbin directories
 export PATH=/usr/sbin:/sbin:/Users/mark.honomichl/bin:$PATH
 export PATH=/usr/local/bin:$PATH
+export PATH=/opt/homebrew/bin:$PATH
 
 # VirtualEnv Wrapper
 if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
