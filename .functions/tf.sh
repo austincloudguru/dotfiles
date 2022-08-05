@@ -57,6 +57,6 @@ tf() {
         export AWS_ORG_ID="d-90676f2986"
         ;;
     *)
-        echo "usage: $0 {acg-dev | acg-shared | acg-pdod | acg-master | cdp-du | cdp-su | cdp-se | cdp-pu | cdp-pe} "
+        echo "usage: $0 {acg-master | cdp-du | cdp-su | cdp-se | cdp-pu | cdp-pe | master-du | master-pu} "
   esac
 }
