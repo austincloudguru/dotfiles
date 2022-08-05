@@ -46,6 +46,16 @@ tf() {
         export AWS_REGION=us-east-1
         export AWS_ORG_ID="d-90676f2986"
         ;;
+    master-du)
+        export PROJECT=dev-master
+        export AWS_REGION=us-east-1
+        export AWS_ORG_ID="d-90676ccecb"
+        ;;
+    master-pu)
+        export PROJECT=prod-master
+        export AWS_REGION=us-east-1
+        export AWS_ORG_ID="d-90676f2986"
+        ;;
     *)
         echo "usage: $0 {acg-dev | acg-shared | acg-pdod | acg-master | cdp-du | cdp-su | cdp-se | cdp-pu | cdp-pe} "
   esac
