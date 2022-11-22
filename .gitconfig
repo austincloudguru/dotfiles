@@ -8,3 +8,5 @@
   gpgsign = true
 [init]
 	templateDir = /Users/mark.honomichl/.git-template
+[push]
+  autoSetupRemote = true
