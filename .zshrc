@@ -48,12 +48,12 @@ export PATH=/usr/local/bin:$PATH
 export PATH=/opt/homebrew/bin:$PATH
 
 # VirtualEnv Wrapper
-if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
+if [ -f /opt/homebrew/bin/virtualenvwrapper.sh ]; then
   export VIRTUALENVWRAPPER_PYTHON=`which python3`
   export VIRTUALENV_PYTHON=`which python3`
   export PIP_REQUIRE_VIRTUALENV=true
   export WORKON_HOME=~/.virtualenvs
-  source /usr/local/bin/virtualenvwrapper.sh
+  source /opt/homebrew/bin/virtualenvwrapper.sh
 fi
 
 # tabtab source for serverless package
