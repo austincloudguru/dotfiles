@@ -10,3 +10,5 @@
 	templateDir = /Users/mark.honomichl/.git-template
 [push]
   autoSetupRemote = true
+[gpg]
+	program = /opt/homebrew/bin/gpg
