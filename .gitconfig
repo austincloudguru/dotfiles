@@ -4,6 +4,8 @@
   name = Mark Honomichl
   email = mark@honomichl.net
   signingkey = 0x31199E24CA8F2734
+[includeIf "gitdir:~/source/nsd/"]
+    path = ~/source/nsd/.gitconfig
 [commit]
   gpgsign = true
 [init]
@@ -12,3 +14,4 @@
   autoSetupRemote = true
 [gpg]
 	program = /opt/homebrew/bin/gpg
+
