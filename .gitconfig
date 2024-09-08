@@ -2,16 +2,20 @@
 #*********************************************************************#
 [user]
   name = Mark Honomichl
-  email = mark@honomichl.net
-  signingkey = 0x31199E24CA8F2734
-[includeIf "gitdir:~/source/nsd/"]
+	email = mark@honomichl.net
+
+[includeIf "gitdir:~/Code/nsd/"]
     path = ~/source/nsd/.gitconfig
+[includeIf "gitdir:~/Code/acg/"]
+    path = ~/source/acg/.gitconfig
+
 [commit]
-  gpgsign = true
+	gpgsign = true
+
 [init]
 	templateDir = /Users/mark.honomichl/.git-template
+
 [push]
   autoSetupRemote = true
-[gpg]
-	program = /opt/homebrew/bin/gpg
-
+[gpg "ssh"]
+	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
