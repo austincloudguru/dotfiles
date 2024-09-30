@@ -5,9 +5,9 @@
 	email = mark@honomichl.net
 
 [includeIf "gitdir:~/Code/nsd/"]
-    path = ~/source/nsd/.gitconfig
+    path = ~/Code/nsd/.gitconfig
 [includeIf "gitdir:~/Code/acg/"]
-    path = ~/source/acg/.gitconfig
+    path = ~/Code/acg/.gitconfig
 
 [commit]
 	gpgsign = true
