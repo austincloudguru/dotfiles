@@ -8,6 +8,8 @@
     path = ~/Code/nsd/.gitconfig
 [includeIf "gitdir:~/Code/acg/"]
     path = ~/Code/acg/.gitconfig
+[includeIf "gitdir:~/Code/renewalsoftware/"]
+    path = ~/Code/renewalsoftware/.gitconfig
 
 [commit]
 	gpgsign = true
