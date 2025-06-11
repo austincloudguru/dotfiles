@@ -16,7 +16,7 @@ function doIt() {
         --exclude "README.md" \
         --exclude "LICENSE" \
         --exclude ".gitignore" \
-        -avh --no-perms . ~;
+        -avh --no-perms ./ ~;
     chmod 700 ~/.ssh
     chmod 700 ~/.gnupg
     chmod 600 ~/.ssh/authorized_keys
