@@ -1,0 +1,25 @@
+#!/bin/bash
+cd ~/Code/acg/docker-terratest/
+available=`tfenv list-remote |grep -v "-" | head -1`
+echo "Available: "$available
+current=`grep "ARG tf_version" Dockerfile | cut -d= -f2 | cut -d- -f1`
+echo "Current: "$current
+
+# if [ $available == $current ]; then
+if [ $available != $current ]; then
+  printf 'Update version (y/n)? '
+  read answer
+
+  if [ "$answer" != "${answer#[Yy]}" ] ;then 
+    cd /Users/mark.honomichl/Code/acg/docker-terratest
+    git checkout -b update_${available}
+    sed -i '' "s/${current}/${available}/g" Dockerfile
+    sed -i '' "s/${current}/${available}/g" test/dockerfile_test.go
+    git commit -m "Updating to ${available}" .
+    git push
+  else
+    echo 'Skipping...'
+  fi
+else
+  echo 'Nothing to do. '
+fi
