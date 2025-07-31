@@ -2,7 +2,7 @@
 #*********************************************************************#
 [user]
   name = Mark Honomichl
-	email = mark@honomichl.net
+	email = mark@renewalSoftware
 
 [includeIf "gitdir:~/Code/nsd/"]
     path = ~/Code/nsd/.gitconfig
