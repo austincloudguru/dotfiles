@@ -76,3 +76,8 @@ fi
 export VAULT_ADDR=https://vault.cicd.cloud.fpdev.io:8200
 
 export PATH="$PATH:$HOME/.rvm/bin"
+
+# Google Cloud SDK
+source "/opt/homebrew/share/google-cloud-sdk/path.zsh.inc"
+source "/opt/homebrew/share/google-cloud-sdk/completion.zsh.inc"
+
