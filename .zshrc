@@ -46,6 +46,7 @@ fi
 export PATH=/usr/sbin:/sbin:/Users/mark.honomichl/bin:$PATH
 export PATH=/usr/local/bin:$PATH
 export PATH=/opt/homebrew/bin:$PATH
+export PATH=/opt/homebrew/opt/java/bin:$PATH
 
 # VirtualEnv Wrapper
 if [ -f /opt/homebrew/bin/virtualenvwrapper.sh ]; then
