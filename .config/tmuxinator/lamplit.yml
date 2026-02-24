@@ -1,0 +1,20 @@
+# /home/mark.honomichl/.config/tmuxinator/lamplit.yml
+
+name: lamplit
+root: ~/Code/renewalsoftware/LampLit
+on_project_stop: pkill -f firestore
+on_project_exit: pkill -f firestore
+
+windows:
+  - claude:
+      - claude
+  - codex:
+      - codex 
+  - cli:
+      layout: 60c6,178x84,0,0[178x63,0,0{89x63,0,0,119,88x63,90,0,117},178x20,0,64,118]
+      panes:
+        - terminal_1:
+        - terminal_2:
+        - terminal_3:
+          - cd firebase
+          - firebase emulators:start --import firebaseAuth --export-on-exit firebaseAuth
