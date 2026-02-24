@@ -42,3 +42,9 @@ gitgood() {
   done
   cd - >>/dev/null
 }
+
+gg() {
+  git add .
+  git commit -m "$*"
+  git push
+}

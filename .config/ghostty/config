@@ -8,7 +8,7 @@ theme = dark:dracula+,light:xcodelight
 quit-after-last-window-closed = true
 
 # Don't ask to close
-confirm-close-surface = false
+# confirm-close-surface = false
 
 # Copy on Select
 copy-on-select = clipboard
